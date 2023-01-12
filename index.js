@@ -112,21 +112,25 @@ clock.ontick = (evt) => {
   
   
   //Change Pet Animations
-  /*
+
   //Move hand to clean Pet Poop 
  if (Accelerometer) {
    console.log("This device has an Accelerometer!");
    const accelerometer = new Accelerometer({ frequency: 1 });
    accelerometer.addEventListener("reading", () => { 
     if (accelerometer.y < 2){   
-      poop--;}
+      poops--;}
   });     
        accelerometer.start();
   }
   else {console.log("This device does NOT have an Accelerometer!");}
-  */
+ 
+  if ((userActivity.adjusted.steps%100) == 0){poops++;}
+  
   if (poops < 0 ) {poops = 0;}
-  else if (poops == 0) {
+  
+  if (userActivity.adjusted.steps > goals.steps/5){
+  if (poops == 0) {
      if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
      else{poop.image = "poop/sun1.png";}}
   else if (poops == 1) {
@@ -140,9 +144,11 @@ clock.ontick = (evt) => {
     petnaughty++;
      if (seconds % 2 == 0){poop.image = "poop/poop4.png";}
      else{poop.image = "poop/poop5.png";}}
-  
+  }
 
-  if ((userActivity.adjusted.steps%100) == 0){poops++;}
+  if (userActivity.adjusted.steps > goals.steps/5){
+    
+  }
 
   
   
@@ -206,15 +212,15 @@ button1.onclick = function(evt) {
   else {evolution.text = "";}
   
   
-  if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "";}
-  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {evolution.text = "♥";}
+  if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "♥";}
+  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {evolution.text = "♥♥";}
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5)))
-  {evolution.text = "♥♥";}
+  {evolution.text = "♥♥♥";}
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
-           {evolution.text = "♥♥♥";}
-  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {evolution.text = "♥♥♥♥";}
-  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥";}
+  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
+           {evolution.text = "♥♥♥♥♥";}
+  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥♥";}
   else {evolution.text = "";}
 
  
