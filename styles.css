@@ -14,11 +14,47 @@
   font-size: 15;
   font-family: System-Bold;
   text-length:32;
-  text-anchor: middle;
+  text-anchor: end;
   opacity: 0.8; 
   y: 39%;
-  x: 65%;
+  x: 72%;
   
+}
+
+.showbigLabel {
+  fill: white;
+  letter-spacing: 5;
+  font-size: 60;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: end;
+  opacity: 0.7; 
+  x: 68%;
+  y: 15%;
+  
+}
+
+.labelbigyellow {
+  fill: white;
+  font-size: 17;
+  font-family: System-Bold;
+  text-length: 32;
+  opacity: 0.7;
+  text-anchor: middle;
+  x: 50%;
+  y: 20%;
+}
+
+.showbigampm {
+ fill: white;
+  letter-spacing: 5;
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  opacity: 0.7; 
+  x: 75%;
+  y: 15%;
 }
 
 
@@ -52,15 +88,23 @@
   font-size: 30;
   font-family: System-Bold;
   text-length: 32;
-  opacity: 0.7;
+  opacity: 0.0;
   text-anchor: start;
 }
 
-
+.labelseeblue {
+  fill: white;
+  letter-spacing: 1;
+  font-size: 30;
+  font-family: System-Bold;
+  text-length: 32;
+  opacity: 0.8;
+  text-anchor: start;
+}
 
 .labelpurple {
   fill: darkviolet;
-  letter-spacing: 2;
+  letter-spacing: 3;
   font-size: 27;
   font-family: System-Bold;
   text-length: 50;
@@ -72,7 +116,8 @@
 
 .labelyellow {
   fill: black;
-  font-size: 15;
+  letter-spacing: 2;
+  font-size: 12;
   font-family: System-Bold;
   text-length: 32;
   opacity: 0.8;
@@ -95,7 +140,7 @@
 
 .ampm {
  fill: black;
-  letter-spacing: 2;
+  letter-spacing: 3;
   font-size: 15;
   font-family: System-Bold;
   text-length: 32;
@@ -104,4 +149,11 @@
   y: 39%;
   x: 77%;
 
+}
+
+.clear{
+  opacity: 0.7;
+}
+.none{
+  opacity: 0.0;
 }
