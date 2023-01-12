@@ -9,9 +9,7 @@
       <g id="demogroup" transform="translate(0%,0%)" pointer-events="visible">
         <image id="pet" class = "dog" />
       <animateTransform attributeType="translate"
-      from="0%,0%" to="0%,-5%" begin="enable" dur="3" /> 
-      <animateTransform attributeType="translate"
-      to="5%,0%" from="-5%,0%"begin="enable" dur="3" />
+      from="0%,0%" to="0%,5%" begin="enable" dur="3" /> 
       </g>
     </symbol>
   </defs>
