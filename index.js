@@ -37,6 +37,7 @@ let goalreached = "NONE";
 
 let background = document.getElementById("background");
 let ampm = document.getElementById("ampm");  
+let evolution = document.getElementById("evolution"); 
 let date = document.getElementById("date");
 let pet = document.getElementById("pet");
 let object = document.getElementById("object");
@@ -129,7 +130,7 @@ button1.onclick = function(evt) {
                       if (seconds % 2 == 0){object.image = "readclockbutton.jpeg";}
                       else{object.image = "readclockbutton1.jpeg";}
   }else{
-    buttonnumber = 0;
+                    buttonnumber = 0;
                     distancelabel.class = "none";
                     firelabel.class  = "none";
                     boltlabel.class  = "none";
@@ -141,20 +142,19 @@ button1.onclick = function(evt) {
                     ampm.class = "ampm"; 
     
   }
-  /*
   
-  if (userActivity.adjusted.steps < goals.steps/5){hearts.image = "blank.png";}
-  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) 
-  {hearts.image = "hearts/heart1.png";}
+  
+  if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "";}
+  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {evolution.text = "♥";}
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5)))
-  {hearts.image = "hearts/heart2.png";}
+  {evolution.text = "♥♥";}
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
-           {hearts.image = "hearts/heart3.png";}
+           {evolution.text = "♥♥♥";}
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
-           {hearts.image = "hearts/heart4.png";}
-  else if (userActivity.adjusted.steps > goals.steps){hearts.image = "hearts/heart5.png";}
-  else {hearts.image = "blank.png";}
-  */
+           {evolution.text = "♥♥♥♥";}
+  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥";}
+  else {evolution.text = "";}
+
  
   
    /*--- OPTION 2: TIME IMAGES FOR 12 HOUR CLOCK---*/
