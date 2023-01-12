@@ -160,7 +160,7 @@ clock.ontick = (evt) => {
   pet.x = -40;}
     else if (minutes%6 == 4){ 
   pet.x = 0;}
-    else if (minutes%5 == 1){ 
+    else if (minutes%6 == 5){ 
   pet.x = -50;}
   else { pet.x = 0;}
   
