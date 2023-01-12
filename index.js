@@ -28,6 +28,7 @@ import { units } from "user-settings";
 import * as document from "document";
 import { Accelerometer } from "accelerometer";
 
+
 /*--- Create Local Variables for Information Storage ---*/
 let daytext = "day";
 let monthtext = "month";
@@ -60,7 +61,8 @@ const heartlabel = document.getElementById("heartlabel");
 const stairslabel = document.getElementById("stairslabel");
 const distancelabel = document.getElementById("distancelabel");
 const button1 = document.getElementById("button-1");
-
+var demoinstance = document.getElementById("demoinstance");
+var demogroup = demoinstance.getElementById("demogroup");
 
   
   if (HeartRateSensor && appbit.permissions.granted("access_heart_rate")) {
@@ -90,6 +92,7 @@ clock.ontick = (evt) => {
   let mins = util.zeroPad(today.getMinutes());
   let seconds = today.getSeconds();
   
+  demoinstance.animate("enable"); 
 
  /*--- Update Stats for Screen ---*/
   updateScene();
@@ -146,11 +149,20 @@ clock.ontick = (evt) => {
      else{poop.image = "poop/poop5.png";}}
   }
 
-  if (userActivity.adjusted.steps > goals.steps/5){
-    
-  }
-
-  
+ 
+  if (minutes%6 == 0){ 
+  pet.x = 0;}
+   else if (minutes%6 == 1){ 
+  pet.x = 20;}
+    else if (minutes%6 == 2){ 
+  pet.x = -20;}
+    else if (minutes%6 == 3){ 
+  pet.x = -40;}
+    else if (minutes%6 == 4){ 
+  pet.x = 0;}
+    else if (minutes%5 == 1){ 
+  pet.x = -50;}
+  else { pet.x = 0;}
   
   //Show large text if clicked
 button1.onclick = function(evt) {
