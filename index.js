@@ -44,7 +44,8 @@ let pet = document.getElementById("pet");
 let object = document.getElementById("object");
 let poop = document.getElementById("poop");
 let buttonnumber = 0;
-
+let poop = 0;
+let petnaughty = 0;
 
 //Update the clock every second 
 clock.granularity = "seconds";
@@ -120,20 +121,33 @@ clock.ontick = (evt) => {
    const accelerometer = new Accelerometer({ frequency: 1 });
    accelerometer.addEventListener("reading", () => { 
     if (accelerometer.y < 2){   
-      poop.image="blank.png";}
-     else {
-   if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
-   else{poop.image = "poop/poop1.png";}}
+      poop = poop - 1;}
   });     
        accelerometer.start();
   }
   else {console.log("This device does NOT have an Accelerometer!");}
   
-
+  if (poop < -1 ) {poop = 0}
+  else if (poop == -1) {
+     if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
+     else{poop.image = "poop/sun1.png";}}
+    else if (poop == 0) {poop.image = "blank.png";}
+  else if (poop == 1) {
+     if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
+     else{poop.image = "poop/poop1.png";}}
+  else if (poop == 2) {
+    petnaughty = petnaughty + 1;
+     if (seconds % 2 == 0){poop.image = "poop/poop2.png";}
+     else{poop.image = "poop/poop3.png";}}
+  else if (poop > 2) {
+    petnaughty = petnaughty + 1;
+     if (seconds % 2 == 0){poop.image = "poop/poop4.png";}
+     else{poop.image = "poop/poop5.png";}}
+  
+  if (minutes % 20 == 0) {poop = poop + 1;}
   
 
-     if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
-   else{poop.image = "poop/poop1.png";}
+  
   
   //Show large text if clicked
 button1.onclick = function(evt) {
