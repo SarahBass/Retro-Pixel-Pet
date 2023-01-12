@@ -184,7 +184,7 @@ button1.onclick = function(evt) {
   }
   else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
          if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
-     else{pet.image = "pet/pet1animate0.png";}
+     else{pet.image = "pet/pet1animate1.png";}
   }
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
          if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
