@@ -44,7 +44,7 @@ let pet = document.getElementById("pet");
 let object = document.getElementById("object");
 let poop = document.getElementById("poop");
 let buttonnumber = 0;
-let poop = 0;
+let poops = 0;
 let petnaughty = 0;
 
 //Update the clock every second 
@@ -112,40 +112,37 @@ clock.ontick = (evt) => {
   
   
   //Change Pet Animations
-   if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
-   else{pet.image = "pet/pet1animate1.png";}
-  
+  /*
   //Move hand to clean Pet Poop 
  if (Accelerometer) {
    console.log("This device has an Accelerometer!");
    const accelerometer = new Accelerometer({ frequency: 1 });
    accelerometer.addEventListener("reading", () => { 
     if (accelerometer.y < 2){   
-      poop = poop - 1;}
+      poop--;}
   });     
        accelerometer.start();
   }
   else {console.log("This device does NOT have an Accelerometer!");}
-  
-  if (poop < -1 ) {poop = 0}
-  else if (poop == -1) {
+  */
+  if (poops < 0 ) {poops = 0;}
+  else if (poops == 0) {
      if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
      else{poop.image = "poop/sun1.png";}}
-    else if (poop == 0) {poop.image = "blank.png";}
-  else if (poop == 1) {
+  else if (poops == 1) {
      if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
      else{poop.image = "poop/poop1.png";}}
-  else if (poop == 2) {
-    petnaughty = petnaughty + 1;
+  else if (poops == 2) {
+    petnaughty++;
      if (seconds % 2 == 0){poop.image = "poop/poop2.png";}
      else{poop.image = "poop/poop3.png";}}
-  else if (poop > 2) {
-    petnaughty = petnaughty + 1;
+  else if (poops > 2) {
+    petnaughty++;
      if (seconds % 2 == 0){poop.image = "poop/poop4.png";}
      else{poop.image = "poop/poop5.png";}}
   
-  if (minutes % 20 == 0) {poop = poop + 1;}
-  
+
+  if ((userActivity.adjusted.steps%100) == 0){poops++;}
 
   
   
@@ -180,6 +177,33 @@ button1.onclick = function(evt) {
                     evolution.class = "meter";
     
   }
+  
+  if (userActivity.adjusted.steps < goals.steps/5){
+     if (seconds % 2 == 0){pet.image = "pet/pet0animate0.png";}
+     else{pet.image = "pet/pet0animate1.png";}
+  }
+  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
+         if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
+     else{pet.image = "pet/pet1animate0.png";}
+  }
+  else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
+         if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
+     else{pet.image = "pet/pet2v0a1.png";}
+  }
+  else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
+           {
+                     if (seconds % 2 == 0){pet.image = "pet/pet3v0a0.png";}
+     else{pet.image = "pet/pet3v0a1.png";}
+           }
+  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
+           {
+                     if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
+     else{pet.image = "pet/pet4v0a1.png";}
+           }
+  else if (userActivity.adjusted.steps > goals.steps){
+            if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
+     else{pet.image = "pet/pet4v0a1.png";}}
+  else {evolution.text = "";}
   
   
   if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "";}
