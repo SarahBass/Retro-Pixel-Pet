@@ -13,6 +13,7 @@
   <text id="myLabel" class="showLabel">
   <text id="date" class= "labelyellow"/> 
   <text id="ampm" class= "ampm"/> 
+  <text id="evolution" class= "meter"/> 
     
   <!-- battery information -->
   <text id="batteryLabel" x="243" y="23" class="label" />
