@@ -26,6 +26,7 @@ import { today as userActivity } from "user-activity";
 import {goals, today} from "user-activity";
 import { units } from "user-settings";
 import * as document from "document";
+import { Accelerometer } from "accelerometer";
 
 /*--- Create Local Variables for Information Storage ---*/
 let daytext = "day";
@@ -112,6 +113,27 @@ clock.ontick = (evt) => {
   //Change Pet Animations
    if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
    else{pet.image = "pet/pet1animate1.png";}
+  
+  //Move hand to clean Pet Poop 
+ if (Accelerometer) {
+   console.log("This device has an Accelerometer!");
+   const accelerometer = new Accelerometer({ frequency: 1 });
+   accelerometer.addEventListener("reading", () => { 
+    if (accelerometer.y < 2){   
+      poop.image="blank.png";}
+     else {
+   if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
+   else{poop.image = "poop/poop1.png";}}
+  });     
+       accelerometer.start();
+  }
+  else {console.log("This device does NOT have an Accelerometer!");}
+  
+
+  
+
+     if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
+   else{poop.image = "poop/poop1.png";}
   
   //Show large text if clicked
 button1.onclick = function(evt) {
