@@ -150,19 +150,8 @@ clock.ontick = (evt) => {
   }
 
  
-  if (minutes%6 == 0){ 
-  pet.x = 0;}
-   else if (minutes%6 == 1){ 
-  pet.x = 20;}
-    else if (minutes%6 == 2){ 
-  pet.x = -20;}
-    else if (minutes%6 == 3){ 
-  pet.x = -40;}
-    else if (minutes%6 == 4){ 
-  pet.x = 0;}
-    else if (minutes%6 == 5){ 
-  pet.x = -50;}
-  else { pet.x = 0;}
+
+  
   
   //Show large text if clicked
 button1.onclick = function(evt) {
@@ -232,7 +221,7 @@ button1.onclick = function(evt) {
            {evolution.text = "♥♥♥♥";}
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {evolution.text = "♥♥♥♥♥";}
-  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥♥";}
+  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥";}
   else {evolution.text = "";}
 
  
