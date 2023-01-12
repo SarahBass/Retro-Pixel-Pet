@@ -2,9 +2,25 @@
   <!-- setting background -->
   <svg><image id="background" href="bluetamo.jpeg" x="0" y="0" width="100%" height="100%" class="dog"/></svg>
     
-  <!-- Animation Group -->
-    
-    <svg><image id="pet" href="blank.png" x="0" y="0" width="100%" height="100%" class="dog"/></svg>
+  <!-- Animation Groups -->
+ <svg>
+  <defs>
+    <symbol id="demo">
+      <g id="demogroup" transform="translate(0%,0%)" pointer-events="visible">
+        <image id="pet" class = "dog" />
+      <animateTransform attributeType="translate"
+      from="0%,0%" to="0%,-5%" begin="enable" dur="3" /> 
+      <animateTransform attributeType="translate"
+      to="5%,0%" from="-5%,0%"begin="enable" dur="3" />
+      </g>
+    </symbol>
+  </defs>
+  <svg width="100%" height="100%">
+    <use id="demoinstance" href="#demo" width="100%" height="100%" />
+  </svg>
+</svg>
+   
+   <!-- Image Groups -->
     <svg><image id="poop" href="blank.png" x="0" y="0" width="100%" height="100%" class="dog"/></svg>
     <svg><image id="object" href="blank.png" x="0" y="0" width="100%" height="100%" class="dog"/></svg>
   
@@ -26,6 +42,8 @@
    <text id="boltlabel" x="42" y="195" class="labellightblue" />   
    <text id="heartlabel" x="42" y="225" class="labellightblue" />  
   </text>
+  
+
   
  <!-- Button --> 
  <use id="button-1" href="#text-button" class="none text-button bottom application-fill"
