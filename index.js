@@ -127,6 +127,7 @@ button1.onclick = function(evt) {
                     myLabel.class =  "showbigLabel";
                     date.class = "labelbigyellow"; 
                     ampm.class = "showbigampm"; 
+                    evolution.class = "none";
                       if (seconds % 2 == 0){object.image = "readclockbutton.jpeg";}
                       else{object.image = "readclockbutton1.jpeg";}
   }else{
@@ -140,6 +141,7 @@ button1.onclick = function(evt) {
                     myLabel.class =  "showLabel";
                     date.class = "labelyellow"; 
                     ampm.class = "ampm"; 
+                    evolution.class = "meter";
     
   }
   
