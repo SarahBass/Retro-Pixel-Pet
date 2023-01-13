@@ -141,11 +141,15 @@ clock.ontick = (evt) => {
    //console.log("Poop Level: " + poops);
    //console.log("Naughty Level: " + petnaughty);
    //console.log("Basic Level: " + basic);
-   const accelerometer = new Accelerometer({ frequency: 1 });
+   const accelerometer = new Accelerometer({ frequency: 30, batch: 60 });
    accelerometer.addEventListener("reading", () => { 
     if (accelerometer.y < 2){   
       poops--;}
-  });     
+  });  
+    display.addEventListener("change", () => {
+    // Automatically stop the sensor when the screen is off to conserve battery
+    display.on ? accel.start() : accel.stop();
+  });
        accelerometer.start();
   }
   else {console.log("This device does NOT have an Accelerometer!");}
@@ -330,4 +334,3 @@ function checkAndUpdateBatteryLevel() {
 }
 /*----------------------------END OF FUNCTIONS--------------------------------*/
 /*-------------------------------END OF CODE----------------------------------*/
-
