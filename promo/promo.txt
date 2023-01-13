@@ -1,1 +1,51 @@
-d
+Earn steps to power up your very own Pixel Pet!
+
+Retro Pixel Pet is based on the old-school 'virtual pet' craze of the 90's. Retro Pixel Pet Puppy starts as an egg, hatches, evolves, and finally grows into a cute digital monster. When you reach your step goal, your pet will be fully transformed! Look at the heart meter to keep track of your progress.  Clean up after your pet by shaking your wrist. The cleaner the pet, the nicer its final form will be!
+
+This is a free clockface only, and it is not the full game. The buttons and games are not activated for this free BETA version of the clockface.  
+
+--------How To Play FREE VERSION--------
+
+When you click the buttons, the screen displays the time, date, and all of your daily statistics. Checking your screen gives the pet rest, and earns it bonus points. The number of bonus points will change its form. Every so many steps, your pet will make waste once it is hatched. If more than 3 pet droppings appear the pet will start to earn negative health points which will change its form. The pet turns into a happy ghost type monster when it earns 6 hearts. A ghost type does not make pet droppings, but it can still change form based on bonus points. 
+
+Pixel Pets are All Original Designs
+--------------------------------------------
+0 Hearts: 1 Egg Monster 
+
+1 Heart : 1 Baby Monster 
+
+2 Hearts : 4 Mini Monsters
+
+3 Hearts : 5 Cup Monsters
+
+4 Hearts: 4 Cute Monsters
+
+5 Hearts : 3 Cute Ghost Monsters
+
+------------------STATS------------------
+
+Clock: 12 Hour or 24 Hour
+
+Walk: Miles or KM
+
+Fire : Total Daily Calories Burned
+
+Stairs: Total Daily Floors
+
+Bolt: Total Daily Active Minutes
+
+Heart : Heart Rate (Click Star to Start)
+
+Footprints: Total Daily Steps
+
+Red Hearts: Percent% of your Steps Goal
+
+___________________________
+
+Settings: If set active, goal, and calorie permissions are not turned on, it will print "Nan", "Null", or "0". Heart Rate activated when you click Star, click again to turn off to save battery. Heart monitor turns on when it senses change.
+
+----LARGE DOWNLOAD SIZE ----
+
+Click Website for download support or large files. For best results, connect watch to charger and download while using a strong wifi connection. Slow Download.
+
+
