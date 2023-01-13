@@ -116,20 +116,8 @@ clock.ontick = (evt) => {
   
   //Change Pet Animations
 
-  //Move hand to clean Pet Poop 
- if (Accelerometer) {
-   console.log("Poop Level: " + poops);
-   console.log("Naughty Level: " + petnaughty);
-   console.log("Basic Level: " + basic);
-   const accelerometer = new Accelerometer({ frequency: 1 });
-   accelerometer.addEventListener("reading", () => { 
-    if (accelerometer.y < 2){   
-      poops--;}
-  });     
-       accelerometer.start();
-  }
-  else {console.log("This device does NOT have an Accelerometer!");}
- 
+  
+  
  //Pet creates waste based on steps 
   if ((userActivity.adjusted.steps%100) == 0){poops++;}
   if (poops <= 0 ) {poops = 0;}
@@ -146,6 +134,23 @@ clock.ontick = (evt) => {
   //Change animation in background to show game over or pet waste
   if (userActivity.adjusted.steps < goals.steps/5){poop.image = "blank.png";}
   else if ((userActivity.adjusted.steps > goals.steps/5) &&  (userActivity.adjusted.steps < goals.steps)){
+    
+    //Move hand to clean Pet Poop 
+  if (poops > 0){
+ if (Accelerometer) {
+   //console.log("Poop Level: " + poops);
+   //console.log("Naughty Level: " + petnaughty);
+   //console.log("Basic Level: " + basic);
+   const accelerometer = new Accelerometer({ frequency: 1 });
+   accelerometer.addEventListener("reading", () => { 
+    if (accelerometer.y < 2){   
+      poops--;}
+  });     
+       accelerometer.start();
+  }
+  else {console.log("This device does NOT have an Accelerometer!");}
+  }
+    
   if (poops == 0) {
      if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
      else{poop.image = "poop/sun1.png";}}
@@ -153,7 +158,6 @@ clock.ontick = (evt) => {
      if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
      else{poop.image = "poop/poop1.png";}}
   else if (poops == 2) {
-    petnaughty++;
      if (seconds % 2 == 0){poop.image = "poop/poop2.png";}
      else{poop.image = "poop/poop3.png";}}
   else if (poops > 2) {
@@ -211,7 +215,7 @@ button1.onclick = function(evt) { buttonnumber++; }
          else{pet.image = "pet/babysmall2.png";}
   }
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
-         
+         /*
          if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
          else{pet.image = "pet/pet2v0a1.png";}
     
@@ -220,7 +224,7 @@ button1.onclick = function(evt) { buttonnumber++; }
     
          if (seconds % 2 == 0){pet.image = "pet/pet2v2a0.png";}
          else{pet.image = "pet/pet2v2a1.png";}
-    
+    */
          if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
          else{pet.image = "pet/pet2v3a1.png";}
   }
