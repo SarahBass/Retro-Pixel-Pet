@@ -227,39 +227,68 @@ button1.onclick = function(evt) { buttonnumber++; }
   //----------Pet Evolution Mini Pet -------------------
   
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
-         /*
-         if (basic > 250){
-         if 
+         
+         if (basic > 100){
+         if (petnaughty > 100){
          if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
-         else{pet.image = "pet/pet2v0a1.png";}
-    
+         else{pet.image = "pet/pet2v0a1.png";}}
+         else{
          if (seconds % 2 == 0){pet.image = "pet/pet2v1a0.png";}
-         else{pet.image = "pet/pet2v11.png";}
+         else{pet.image = "pet/pet2v11.png";}}
          }else{
+                  if (petnaughty > 100){
+                        if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
+                        else{pet.image = "pet/pet2v3a1.png";}}
+                  else{
+                        if (seconds % 2 == 0){pet.image = "pet/pet2v2a0.png";}
+                        else{pet.image = "pet/pet2v2a1.png";}}
+         }
          
-         if (seconds % 2 == 0){pet.image = "pet/pet2v2a0.png";}
-         else{pet.image = "pet/pet2v2a1.png";}
-    
-         if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
-         else{pet.image = "pet/pet2v3a1.png";}
-         
-         */
   }
   
     //----------Pet Evolution Cup Pet -------------------
   
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
            {
-                     if (seconds % 2 == 0){pet.image = "pet/pet3v0a0.png";}
-     else{pet.image = "pet/pet3v0a1.png";}
+ if (basic > 200){
+         if (petnaughty > 100){
+         if (seconds % 2 == 0){pet.image = "pet/pet3v4a0.png";}          
+         else{pet.image = "pet/pet3v4a1.png";}}
+         else if (petnaughty > 200){
+         if (seconds % 2 == 0){pet.image = "pet/pet3v0a0.png";}
+         else{pet.image = "pet/pet3v0a1.png";}}
+         else{
+         if (seconds % 2 == 0){pet.image = "pet/pet3v1a0.png";}
+         else{pet.image = "pet/pet3v11.png";}}
+         }else{
+                  if (petnaughty > 200){
+                        if (seconds % 2 == 0){pet.image = "pet/pet3v3a0.png";}
+                        else{pet.image = "pet/pet3v3a1.png";}}
+                  else{
+                        if (seconds % 2 == 0){pet.image = "pet/pet3v2a0.png";}
+                        else{pet.image = "pet/pet3v2a1.png";}}
+         }
            }
   
     //----------Pet Evolution Adult Pet -------------------
   
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {
-                     if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
-     else{pet.image = "pet/pet4v0a1.png";}
+         if (basic > 100){
+         if (petnaughty > 100){
+         if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
+         else{pet.image = "pet/pet4v0a1.png";}}
+         else{
+         if (seconds % 2 == 0){pet.image = "pet/pet4v1a0.png";}
+         else{pet.image = "pet/pet4v11.png";}}
+         }else{
+                  if (petnaughty > 100){
+                        if (seconds % 2 == 0){pet.image = "pet/pet4v2a0.png";}
+                        else{pet.image = "pet/pet4v2a1.png";}}
+                  else{
+                        if (seconds % 2 == 0){pet.image = "pet/pet4v3a0.png";}
+                        else{pet.image = "pet/pet4v3a1.png";}}
+         }
            }
   //---------Game Over Pet ------------------
   
