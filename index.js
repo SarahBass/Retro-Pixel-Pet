@@ -274,15 +274,15 @@ button1.onclick = function(evt) { buttonnumber++; }
   
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {
-         if (basic > 100){
-         if (petnaughty > 100){
+         if (basic > 400){
+         if (petnaughty > 400){
          if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
          else{pet.image = "pet/pet4v0a1.png";}}
          else{
          if (seconds % 2 == 0){pet.image = "pet/pet4v1a0.png";}
          else{pet.image = "pet/pet4v11.png";}}
          }else{
-                  if (petnaughty > 100){
+                  if (petnaughty > 400){
                         if (seconds % 2 == 0){pet.image = "pet/pet4v2a0.png";}
                         else{pet.image = "pet/pet4v2a1.png";}}
                   else{
