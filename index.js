@@ -47,7 +47,7 @@ let poop = document.getElementById("poop");
 let buttonnumber = 0;
 let poops = 0;
 let petnaughty = 0;
-
+let basic = 0;
 //Update the clock every second 
 clock.granularity = "seconds";
 
@@ -118,7 +118,9 @@ clock.ontick = (evt) => {
 
   //Move hand to clean Pet Poop 
  if (Accelerometer) {
-   console.log("This device has an Accelerometer!");
+   console.log("Poop Level: " + poops);
+   console.log("Naughty Level: " + petnaughty);
+   console.log("Basic Level: " + basic);
    const accelerometer = new Accelerometer({ frequency: 1 });
    accelerometer.addEventListener("reading", () => { 
     if (accelerometer.y < 2){   
@@ -128,11 +130,22 @@ clock.ontick = (evt) => {
   }
   else {console.log("This device does NOT have an Accelerometer!");}
  
+ //Pet creates waste based on steps 
   if ((userActivity.adjusted.steps%100) == 0){poops++;}
+  if (poops <= 0 ) {poops = 0;}
+  if (poops >= 5){poops = 5}
   
-  if (poops < 0 ) {poops = 0;}
+  //Not Cleaning makes Pet Naughty
+  if ( petnaughty >= 1000){petnaughty = 1000;}
+  if (petnaughty <= 0){petnaughty = 0;}
   
-  if (userActivity.adjusted.steps > goals.steps/5){
+  //Sleeping increases cuteness level of form
+  if (basic >= 1000){basic = 1000;}
+  if (basic <= 0){basic = 0;} 
+  
+  //Change animation in background to show game over or pet waste
+  if (userActivity.adjusted.steps < goals.steps/5){poop.image = "blank.png";}
+  else if ((userActivity.adjusted.steps > goals.steps/5) &&  (userActivity.adjusted.steps < goals.steps)){
   if (poops == 0) {
      if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
      else{poop.image = "poop/sun1.png";}}
@@ -147,19 +160,19 @@ clock.ontick = (evt) => {
     petnaughty++;
      if (seconds % 2 == 0){poop.image = "poop/poop4.png";}
      else{poop.image = "poop/poop5.png";}}
-  }
+  
+  }else if (userActivity.adjusted.steps >= goals.steps) {poop.image = "poop/gameover.png";}
+  else {poop.image = "blank.png";}
 
  
 
   
   
-  //Show large text if clicked
-button1.onclick = function(evt) {
-                    buttonnumber++;
-}
-  
+  //Show large text Clock if clicked
+button1.onclick = function(evt) { buttonnumber++; }
+
   if (buttonnumber == 1){
-                        distancelabel.class = "labelseeblue";
+                    distancelabel.class = "labelseeblue";
                     firelabel.class  = "labelseeblue";
                     boltlabel.class  = "labelseeblue";
                     heartlabel.class  = "labelseeblue";
@@ -168,8 +181,10 @@ button1.onclick = function(evt) {
                     date.class = "labelbigyellow"; 
                     ampm.class = "showbigampm"; 
                     evolution.class = "none";
-                      if (seconds % 2 == 0){object.image = "readclockbutton.jpeg";}
-                      else{object.image = "readclockbutton1.jpeg";}
+                    basic++;
+                    
+                      if (seconds % 2 == 0){object.image = "read.jpeg";}
+                      else{object.image = "read1.jpeg";}
   }else{
                     buttonnumber = 0;
                     distancelabel.class = "none";
@@ -185,17 +200,29 @@ button1.onclick = function(evt) {
     
   }
   
+  //--------------CHANGE PET FORM IN FOREGROUND ------------------
+  
   if (userActivity.adjusted.steps < goals.steps/5){
      if (seconds % 2 == 0){pet.image = "pet/pet0animate0.png";}
      else{pet.image = "pet/pet0animate1.png";}
   }
   else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
-         if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
-     else{pet.image = "pet/pet1animate1.png";}
+         if (seconds % 2 == 0){pet.image = "pet/babysmall1.png";}
+         else{pet.image = "pet/babysmall2.png";}
   }
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
+         
          if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
-     else{pet.image = "pet/pet2v0a1.png";}
+         else{pet.image = "pet/pet2v0a1.png";}
+    
+         if (seconds % 2 == 0){pet.image = "pet/pet2v1a0.png";}
+         else{pet.image = "pet/pet2v11.png";}
+    
+         if (seconds % 2 == 0){pet.image = "pet/pet2v2a0.png";}
+         else{pet.image = "pet/pet2v2a1.png";}
+    
+         if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
+         else{pet.image = "pet/pet2v3a1.png";}
   }
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
            {
@@ -208,9 +235,21 @@ button1.onclick = function(evt) {
      else{pet.image = "pet/pet4v0a1.png";}
            }
   else if (userActivity.adjusted.steps > goals.steps){
-            if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
-     else{pet.image = "pet/pet4v0a1.png";}}
-  else {evolution.text = "";}
+    
+    if (petnaughty > 500){
+            if (seconds % 2 == 0){pet.image = "pet/ghostv2a0.png";}
+            else{pet.image = "pet/ghostv2a1.png";}}
+    else if (basic < 500){
+             if (seconds % 2 == 0){pet.image = "pet/ghostv3a0.png";}
+            else{pet.image = "pet/ghostv3a1.png";}     
+    }
+    //Perfect Pet Ending:                     
+    else{
+            if (seconds % 2 == 0){pet.image = "pet/ghostv1a0.png";}
+            else{pet.image = "pet/ghostv1a1.png";}}
+    
+  } else {     if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
+     else{pet.image = "pet/pet1animate1.png";}}
   
   
   if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "♥";}
@@ -221,7 +260,7 @@ button1.onclick = function(evt) {
            {evolution.text = "♥♥♥♥";}
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {evolution.text = "♥♥♥♥♥";}
-  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥";}
+  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥♥";}
   else {evolution.text = "";}
 
  
@@ -287,3 +326,4 @@ function checkAndUpdateBatteryLevel() {
 }
 /*----------------------------END OF FUNCTIONS--------------------------------*/
 /*-------------------------------END OF CODE----------------------------------*/
+
