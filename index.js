@@ -234,7 +234,7 @@ button1.onclick = function(evt) { buttonnumber++; }
          else{pet.image = "pet/pet2v0a1.png";}}
          else{
          if (seconds % 2 == 0){pet.image = "pet/pet2v1a0.png";}
-         else{pet.image = "pet/pet2v11.png";}}
+         else{pet.image = "pet/pet2v1a1.png";}}
          }else{
                   if (petnaughty > 100){
                         if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
@@ -259,7 +259,7 @@ button1.onclick = function(evt) { buttonnumber++; }
          else{pet.image = "pet/pet3v0a1.png";}}
          else{
          if (seconds % 2 == 0){pet.image = "pet/pet3v1a0.png";}
-         else{pet.image = "pet/pet3v11.png";}}
+         else{pet.image = "pet/pet3v1a1.png";}}
          }else{
                   if (petnaughty > 200){
                         if (seconds % 2 == 0){pet.image = "pet/pet3v3a0.png";}
@@ -280,7 +280,7 @@ button1.onclick = function(evt) { buttonnumber++; }
          else{pet.image = "pet/pet4v0a1.png";}}
          else{
          if (seconds % 2 == 0){pet.image = "pet/pet4v1a0.png";}
-         else{pet.image = "pet/pet4v11.png";}}
+         else{pet.image = "pet/pet4v1a1.png";}}
          }else{
                   if (petnaughty > 400){
                         if (seconds % 2 == 0){pet.image = "pet/pet4v2a0.png";}
