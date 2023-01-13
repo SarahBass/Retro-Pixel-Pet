@@ -135,7 +135,8 @@ clock.ontick = (evt) => {
   if (userActivity.adjusted.steps < goals.steps/5){poop.image = "blank.png";}
   else if ((userActivity.adjusted.steps > goals.steps/5) &&  (userActivity.adjusted.steps < goals.steps)){
     
-    //Move hand to clean Pet Poop 
+    //Move hand to clean Pet Poop only if poop level is more than 0
+    //Reduce Accelerometer as much as possible and use batches and lower frequency
   if (poops > 0){
  if (Accelerometer) {
    //console.log("Poop Level: " + poops);
@@ -210,38 +211,58 @@ button1.onclick = function(evt) { buttonnumber++; }
   
   //--------------CHANGE PET FORM IN FOREGROUND ------------------
   
+    //----------Pet Evolution Egg -------------------
   if (userActivity.adjusted.steps < goals.steps/5){
      if (seconds % 2 == 0){pet.image = "pet/pet0animate0.png";}
      else{pet.image = "pet/pet0animate1.png";}
   }
+  
+    //----------Pet Evolution Baby Pet -------------------
+  
   else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
          if (seconds % 2 == 0){pet.image = "pet/babysmall1.png";}
          else{pet.image = "pet/babysmall2.png";}
   }
+  
+  //----------Pet Evolution Mini Pet -------------------
+  
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
          /*
+         if (basic > 250){
+         if 
          if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
          else{pet.image = "pet/pet2v0a1.png";}
     
          if (seconds % 2 == 0){pet.image = "pet/pet2v1a0.png";}
          else{pet.image = "pet/pet2v11.png";}
-    
+         }else{
+         
          if (seconds % 2 == 0){pet.image = "pet/pet2v2a0.png";}
          else{pet.image = "pet/pet2v2a1.png";}
-    */
+    
          if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
          else{pet.image = "pet/pet2v3a1.png";}
+         
+         */
   }
+  
+    //----------Pet Evolution Cup Pet -------------------
+  
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
            {
                      if (seconds % 2 == 0){pet.image = "pet/pet3v0a0.png";}
      else{pet.image = "pet/pet3v0a1.png";}
            }
+  
+    //----------Pet Evolution Adult Pet -------------------
+  
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {
                      if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
      else{pet.image = "pet/pet4v0a1.png";}
            }
+  //---------Game Over Pet ------------------
+  
   else if (userActivity.adjusted.steps > goals.steps){
     
     if (petnaughty > 500){
