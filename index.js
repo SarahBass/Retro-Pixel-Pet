@@ -111,8 +111,8 @@ clock.ontick = (evt) => {
 
   
   //AM PM -Change the image based on 24 hours
-  if (util.zeroPad(hours) >= 12){ampm.text = "pm";}
-  else{ampm.text = "am";}
+  if (util.zeroPad(hours) >= 12){ampm.text = "PM";}
+  else{ampm.text = "AM";}
   
   
   //Change Pet Animations and Backgrounds
