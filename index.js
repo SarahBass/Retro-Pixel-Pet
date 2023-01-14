@@ -111,8 +111,8 @@ clock.ontick = (evt) => {
 
   
   //AM PM -Change the image based on 24 hours
-  if (util.zeroPad(hours) >= 12){ampm.text = "PM";}
-  else{ampm.text = "AM";}
+  if (util.zeroPad(hours) >= 12){ampm.text = "pm";}
+  else{ampm.text = "am";}
   
   
   //Change Pet Animations and Backgrounds
@@ -191,9 +191,6 @@ button1.onclick = function(evt) { buttonnumber++; }
                     boltlabel.class  = "labelseeblue";
                     heartlabel.class  = "labelseeblue";
                     stairslabel.class  = "labelseeblue";
-                    myLabel.class =  "showbigLabel";
-                    date.class = "labelbigyellow"; 
-                    ampm.class = "showbigampm"; 
                     evolution.class = "none";
                     basic++;
                     
@@ -207,9 +204,6 @@ button1.onclick = function(evt) { buttonnumber++; }
                     heartlabel.class  = "none";
                     stairslabel.class  = "none";
                     object.image = "blank.png";
-                    myLabel.class =  "showLabel";
-                    date.class = "labelyellow"; 
-                    ampm.class = "ampm"; 
                     evolution.class = "meter";
     
   }
