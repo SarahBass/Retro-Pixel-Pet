@@ -75,4 +75,4 @@ Pixel Pets are All Original Designs
 
 ### Game Over
 
-![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel%2010.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%205.png)
