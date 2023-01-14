@@ -55,19 +55,23 @@ Pixel Pets are All Original Designs
 
 >Footprints: Total Daily Steps
 
-## Seasons
+## Evolutions
 
-### Spring
+### Egg Monster
 
-![Alt text](https://github.com/SarahBass/VirtualPetDog/blob/main/promo/Untitled_49.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%202.png)
 
-### Summer
+### Baby Monster
 
-![Alt text](https://github.com/SarahBass/VirtualPetDog/blob/main/promo/Untitled_49%207.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2.png)
 
-### Adult
+### Cup Monster
 
-![Alt text](https://github.com/SarahBass/VirtualPetDog/blob/main/promo/Untitled_49%206.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%204.png)
+
+### Cute Monster
+
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%203.png)
 
 ### Game Over
 
