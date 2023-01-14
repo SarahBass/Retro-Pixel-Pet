@@ -135,6 +135,7 @@
 .dog {
   width: 100%;
   height: 100%;
+  y: 3%;
 
 }
 
@@ -159,7 +160,7 @@
   text-length: 32;
   text-anchor: end;
   opacity: 0.9; 
-  y: 34%;
+  y: 38%;
   x: 83%;
 
 }
