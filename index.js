@@ -108,15 +108,16 @@ clock.ontick = (evt) => {
   heartlabel.text = "off";  
   checkAndUpdateBatteryLevel();
 
+
   
   //AM PM -Change the image based on 24 hours
   if (util.zeroPad(hours) >= 12){ampm.text = "PM";}
   else{ampm.text = "AM";}
   
   
-  //Change Pet Animations
+  //Change Pet Animations and Backgrounds
 
-  
+  background.image = days + ".jpeg";
   
  //Pet creates waste based on steps 
   if ((userActivity.adjusted.steps%100) == 0){poops++;}
@@ -173,8 +174,12 @@ clock.ontick = (evt) => {
   }else if (userActivity.adjusted.steps >= goals.steps) {poop.image = "poop/gameover.png";}
   else {poop.image = "blank.png";}
 
- 
-
+ //Reset stats at midnight
+if ((util.zeroPad(hours) == 0)&& (minutes == 1)){
+  petnaughty = 0;
+  poops = 0;
+  basic = 0;
+}
   
   
   //Show large text Clock if clicked
