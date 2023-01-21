@@ -50,6 +50,7 @@ let petnaughty = 0;
 let basic = 0;
 let version = 0;
 let age = 0;
+let pets ="egg";
 //Update the clock every second 
 clock.granularity = "seconds";
 
@@ -171,18 +172,22 @@ function checkAndUpdateBatteryLevel() {
 }
  
     function showPet(){
+      //egg has 1 version
+      if pets == "egg" {version = 0;}
+      else{
  if (basic > age){
+         //best looking versions
          if (petnaughty > age){ version=0;}
          else{version = 1;}
          }else{
-           if (petnaughty > age){version = 4;}
-           else{version = 3;}
-         }
+           //Worse looking versions
+           if (petnaughty > age){version = 3;}
+           else{version = 2;}}}
   //0 is worst 
   //1 is best and good
   //2 is sad but good
   //3 is weird and worst
-  //4 is weird but good
+  
     //----------Pet Evolution Baby Pet -------------------
   
   //--------------CHANGE PET FORM IN FOREGROUND ------------------
@@ -207,7 +212,7 @@ pet.image =  pets + "v" + version + "a" + seconds%2 + ".png";
   
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
            {
-             pets = "pet4";
+             pets = "cup";
              age = 50;
            }
   
@@ -215,7 +220,7 @@ pet.image =  pets + "v" + version + "a" + seconds%2 + ".png";
   
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {
-             pets = "cup";
+             pets = "pet4";
              age = 60;
            }
   //---------Game Over Pet ------------------
