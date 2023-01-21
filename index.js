@@ -263,7 +263,7 @@ pet.image =  pets + "v" + version + "a" + seconds%2 + ".png";
     
   if (poops == 0) {
   
-    if (version < 3){
+    if (basic < age){
     if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
      else{poop.image = "poop/sun1.png";}}
     else{
