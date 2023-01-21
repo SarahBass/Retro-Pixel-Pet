@@ -1,6 +1,6 @@
 /*
 ----------------------------------------------
- *  Project:   Pixel Pet Clock Face
+ *  Project:   Pixel Pet Clock Face RETRO
  *  Mail:       darahbass@gmail.com
  *  Github:     SarahBass
  ---------------------------------------------
@@ -48,6 +48,8 @@ let buttonnumber = 0;
 let poops = 0;
 let petnaughty = 0;
 let basic = 0;
+let version = 0;
+let age = 0;
 //Update the clock every second 
 clock.granularity = "seconds";
 
@@ -103,7 +105,6 @@ clock.ontick = (evt) => {
   stairslabel.text = userActivity.adjusted.elevationGain;
   stepsLabel.text = userActivity.adjusted.steps;
   firelabel.text = userActivity.adjusted.calories;
- // targetlabel.text = parseInt(userActivity.adjusted.steps/goals.steps * 100) + "%";
   boltlabel.text = userActivity.adjusted.activeZoneMinutes.total;
   heartlabel.text = "off";  
   checkAndUpdateBatteryLevel();
@@ -117,210 +118,30 @@ clock.ontick = (evt) => {
   
   //Change Pet Animations and Backgrounds
 
-  background.image = days + ".jpeg";
+if (userActivity.adjusted.steps > goals.steps){background.image = "Gameover.jpeg";}
+  else{background.image = days + ".jpeg";}
   
  //Pet creates waste based on steps 
-  if ((userActivity.adjusted.steps%100) == 0){poops++;}
+  if ((userActivity.adjusted.steps%25) == 0){poops++;}
   if (poops <= 0 ) {poops = 0;}
   if (poops >= 5){poops = 5}
   
   //Not Cleaning makes Pet Naughty
-  if ( petnaughty >= 1000){petnaughty = 1000;}
+  if ( petnaughty >= 100){petnaughty = 100;}
   if (petnaughty <= 0){petnaughty = 0;}
   
   //Sleeping increases cuteness level of form
-  if (basic >= 1000){basic = 1000;}
+  if (basic >= 100){basic = 100;}
   if (basic <= 0){basic = 0;} 
   
-  //Change animation in background to show game over or pet waste
-  if (userActivity.adjusted.steps < goals.steps/5){poop.image = "blank.png";}
-  else if ((userActivity.adjusted.steps > goals.steps/5) &&  (userActivity.adjusted.steps < goals.steps)){
-    
-    //Move hand to clean Pet Poop only if poop level is more than 0
-    //Reduce Accelerometer as much as possible and use batches and lower frequency
-  if (poops > 0){
- if (Accelerometer) {
-   //console.log("Poop Level: " + poops);
-   //console.log("Naughty Level: " + petnaughty);
-   //console.log("Basic Level: " + basic);
-   const accelerometer = new Accelerometer({ frequency: 30, batch: 60 });
-   accelerometer.addEventListener("reading", () => { 
-    if (accelerometer.y < 2){   
-      poops--;}
-  });  
-    display.addEventListener("change", () => {
-    // Automatically stop the sensor when the screen is off to conserve battery
-    display.on ? accel.start() : accel.stop();
-  });
-       accelerometer.start();
-  }
-  else {console.log("This device does NOT have an Accelerometer!");}
-  }
-    
-  if (poops == 0) {
-     if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
-     else{poop.image = "poop/sun1.png";}}
-  else if (poops == 1) {
-     if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
-     else{poop.image = "poop/poop1.png";}}
-  else if (poops == 2) {
-     if (seconds % 2 == 0){poop.image = "poop/poop2.png";}
-     else{poop.image = "poop/poop3.png";}}
-  else if (poops > 2) {
-    petnaughty++;
-     if (seconds % 2 == 0){poop.image = "poop/poop4.png";}
-     else{poop.image = "poop/poop5.png";}}
-  
-  }else if (userActivity.adjusted.steps >= goals.steps) {poop.image = "poop/gameover.png";}
-  else {poop.image = "blank.png";}
-
- //Reset stats at midnight
-if ((util.zeroPad(hours) == 0)&& (minutes == 1)){
-  petnaughty = 0;
-  poops = 0;
-  basic = 0;
-}
-  
-  
-  //Show large text Clock if clicked
-button1.onclick = function(evt) { buttonnumber++; }
-
-  if (buttonnumber == 1){
-                    distancelabel.class = "labelseeblue";
-                    firelabel.class  = "labelseeblue";
-                    boltlabel.class  = "labelseeblue";
-                    heartlabel.class  = "labelseeblue";
-                    stairslabel.class  = "labelseeblue";
-                    evolution.class = "none";
-                    basic++;
-                    
-                      if (seconds % 2 == 0){object.image = "read.jpeg";}
-                      else{object.image = "read1.jpeg";}
-  }else{
-                    buttonnumber = 0;
-                    distancelabel.class = "none";
-                    firelabel.class  = "none";
-                    boltlabel.class  = "none";
-                    heartlabel.class  = "none";
-                    stairslabel.class  = "none";
-                    object.image = "blank.png";
-                    evolution.class = "meter";
-    
-  }
+ 
   
   //--------------CHANGE PET FORM IN FOREGROUND ------------------
   
-    //----------Pet Evolution Egg -------------------
-  if (userActivity.adjusted.steps < goals.steps/5){
-     if (seconds % 2 == 0){pet.image = "pet/pet0animate0.png";}
-     else{pet.image = "pet/pet0animate1.png";}
-  }
-  
-    //----------Pet Evolution Baby Pet -------------------
-  
-  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
-         if (seconds % 2 == 0){pet.image = "pet/babysmall1.png";}
-         else{pet.image = "pet/babysmall2.png";}
-  }
-  
-  //----------Pet Evolution Mini Pet -------------------
-  
-  else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
-         
-         if (basic > 100){
-         if (petnaughty > 100){
-         if (seconds % 2 == 0){pet.image = "pet/pet2v0a0.png";}
-         else{pet.image = "pet/pet2v0a1.png";}}
-         else{
-         if (seconds % 2 == 0){pet.image = "pet/pet2v1a0.png";}
-         else{pet.image = "pet/pet2v1a1.png";}}
-         }else{
-                  if (petnaughty > 100){
-                        if (seconds % 2 == 0){pet.image = "pet/pet2v3a0.png";}
-                        else{pet.image = "pet/pet2v3a1.png";}}
-                  else{
-                        if (seconds % 2 == 0){pet.image = "pet/pet2v2a0.png";}
-                        else{pet.image = "pet/pet2v2a1.png";}}
-         }
-         
-  }
-  
-    //----------Pet Evolution Cup Pet -------------------
-  
-  else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
-           {
- if (basic > 200){
-         if (petnaughty > 100){
-         if (seconds % 2 == 0){pet.image = "pet/pet3v4a0.png";}          
-         else{pet.image = "pet/pet3v4a1.png";}}
-         else if (petnaughty > 200){
-         if (seconds % 2 == 0){pet.image = "pet/pet3v0a0.png";}
-         else{pet.image = "pet/pet3v0a1.png";}}
-         else{
-         if (seconds % 2 == 0){pet.image = "pet/pet3v1a0.png";}
-         else{pet.image = "pet/pet3v1a1.png";}}
-         }else{
-                  if (petnaughty > 200){
-                        if (seconds % 2 == 0){pet.image = "pet/pet3v3a0.png";}
-                        else{pet.image = "pet/pet3v3a1.png";}}
-                  else{
-                        if (seconds % 2 == 0){pet.image = "pet/pet3v2a0.png";}
-                        else{pet.image = "pet/pet3v2a1.png";}}
-         }
-           }
-  
-    //----------Pet Evolution Adult Pet -------------------
-  
-  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
-           {
-         if (basic > 400){
-         if (petnaughty > 400){
-         if (seconds % 2 == 0){pet.image = "pet/pet4v0a0.png";}
-         else{pet.image = "pet/pet4v0a1.png";}}
-         else{
-         if (seconds % 2 == 0){pet.image = "pet/pet4v1a0.png";}
-         else{pet.image = "pet/pet4v1a1.png";}}
-         }else{
-                  if (petnaughty > 400){
-                        if (seconds % 2 == 0){pet.image = "pet/pet4v2a0.png";}
-                        else{pet.image = "pet/pet4v2a1.png";}}
-                  else{
-                        if (seconds % 2 == 0){pet.image = "pet/pet4v3a0.png";}
-                        else{pet.image = "pet/pet4v3a1.png";}}
-         }
-           }
-  //---------Game Over Pet ------------------
-  
-  else if (userActivity.adjusted.steps > goals.steps){
-    
-    if (petnaughty > 500){
-            if (seconds % 2 == 0){pet.image = "pet/ghostv2a0.png";}
-            else{pet.image = "pet/ghostv2a1.png";}}
-    else if (basic < 500){
-             if (seconds % 2 == 0){pet.image = "pet/ghostv3a0.png";}
-            else{pet.image = "pet/ghostv3a1.png";}     
-    }
-    //Perfect Pet Ending:                     
-    else{
-            if (seconds % 2 == 0){pet.image = "pet/ghostv1a0.png";}
-            else{pet.image = "pet/ghostv1a1.png";}}
-    
-  } else {     if (seconds % 2 == 0){pet.image = "pet/pet1animate0.png";}
-     else{pet.image = "pet/pet1animate1.png";}}
-  
-  
-  if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "♥";}
-  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {evolution.text = "♥♥";}
-  else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5)))
-  {evolution.text = "♥♥♥";}
-  else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
-           {evolution.text = "♥♥♥♥";}
-  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
-           {evolution.text = "♥♥♥♥♥";}
-  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥♥";}
-  else {evolution.text = "";}
-
- 
+  showPet();
+  showPoop();
+  showHearts();
+  showButton();
   
    /*--- OPTION 2: TIME IMAGES FOR 12 HOUR CLOCK---*/
   //set class of each # IMAGE individually if needed for formatting
@@ -349,7 +170,165 @@ function checkAndUpdateBatteryLevel() {
         battery.onchange = (charger, evt) => {batteryLabel.class = "labelgreen";}}
 }
  
+    function showPet(){
+ if (basic > age){
+         if (petnaughty > age){ version=0;}
+         else{version = 1;}
+         }else{
+           if (petnaughty > age){version = 4;}
+           else{version = 3;}
+         }
+  //0 is worst 
+  //1 is best and good
+  //2 is sad but good
+  //3 is weird and worst
+  //4 is weird but good
+    //----------Pet Evolution Baby Pet -------------------
   
+  //--------------CHANGE PET FORM IN FOREGROUND ------------------
+  //pet/pet3v0a1.png
+pet.image =  pets + "v" + version + "a" + seconds%2 + ".png";
+    //----------Pet Evolution Egg -------------------
+  if (userActivity.adjusted.steps < goals.steps/5){
+  pets = "egg";
+  age = 20;}
+  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
+         pets = "baby";
+         age = 30;
+  }
+  //----------Pet Evolution Mini Pet -------------------
+  
+  else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
+         pets = "child";
+         age = 40;
+  }
+  
+    //----------Pet Evolution Cup Pet -------------------
+  
+  else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
+           {
+             pets = "pet4";
+             age = 50;
+           }
+  
+    //----------Pet Evolution Adult Pet -------------------
+  
+  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
+           {
+             pets = "cup";
+             age = 60;
+           }
+  //---------Game Over Pet ------------------
+  
+  else if (userActivity.adjusted.steps > goals.steps){
+    
+    pets = "ghost";
+    age = 30;
+    
+  } else {
+    pets = "pet4";
+    age = 20;
+  }}
+  
+  function showPoop(){
+      //Change animation in background to show game over or pet waste
+  if (userActivity.adjusted.steps < goals.steps/5){poop.image = "blank.png";}
+  else if ((userActivity.adjusted.steps > goals.steps/5) &&  (userActivity.adjusted.steps < goals.steps)){
+    
+    //Move hand to clean Pet Poop only if poop level is more than 0
+    //Reduce Accelerometer as much as possible and use batches and lower frequency
+  if (poops > 0){
+ if (Accelerometer) {
+   //console.log("Poop Level: " + poops);
+   //console.log("Naughty Level: " + petnaughty);
+   //console.log("Basic Level: " + basic);
+   const accelerometer = new Accelerometer({ frequency: 30, batch: 60 });
+   accelerometer.addEventListener("reading", () => { 
+    if (accelerometer.y < 6){   
+      poops--;}
+  });  
+    display.addEventListener("change", () => {
+    // Automatically stop the sensor when the screen is off to conserve battery
+    display.on ? accel.start() : accel.stop();
+  });
+       accelerometer.start();
+  }
+  else {console.log("This device does NOT have an Accelerometer!");}
+  }
+    
+  if (poops == 0) {
+  
+    if (version < 3){
+    if (seconds % 2 == 0){poop.image = "poop/sun0.png";}
+     else{poop.image = "poop/sun1.png";}}
+    else{
+    if (seconds % 2 == 0){poop.image = "blank.png";}
+     else{poop.image = "poop/heart.png";}
+    }
+  
+  }
+  else if (poops == 1) {
+     if (seconds % 2 == 0){poop.image = "poop/poop0.png";}
+     else{poop.image = "poop/poop1.png";}}
+  else if (poops == 2) {
+     if (seconds % 2 == 0){poop.image = "poop/poop2.png";}
+     else{poop.image = "poop/poop3.png";}}
+  else if (poops > 2) {
+    petnaughty++;
+     if (seconds % 2 == 0){poop.image = "poop/poop4.png";}
+     else{poop.image = "poop/poop5.png";}}
+  
+  }else if (userActivity.adjusted.steps >= goals.steps) {poop.image = "poop/gameover.png";}
+  else {poop.image = "blank.png";}
+
+ //Reset stats at midnight
+if ((util.zeroPad(hours) == 0)&& (minutes == 1)){
+  petnaughty = 0;
+  poops = 0;
+  basic = 0;
+}
+  }
+  
+  function showHearts(){
+    if (userActivity.adjusted.steps < goals.steps/5){evolution.text = "♥";}
+  else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {evolution.text = "♥♥";}
+  else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5)))
+  {evolution.text = "♥♥♥";}
+  else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
+           {evolution.text = "♥♥♥♥";}
+  else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
+           {evolution.text = "♥♥♥♥♥";}
+  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥♥";}
+  else {evolution.text = "";}
+  }
+  
+  function showButton(){
+     //Show large text Clock if clicked
+button1.onclick = function(evt) { buttonnumber++; }
+
+  if (buttonnumber == 1){
+                    distancelabel.class = "labelseeblue";
+                    firelabel.class  = "labelseeblue";
+                    boltlabel.class  = "labelseeblue";
+                    heartlabel.class  = "labelseeblue";
+                    stairslabel.class  = "labelseeblue";
+                    evolution.class = "none";
+                    basic++;
+                    petnaughty--;
+                      if (seconds % 2 == 0){object.image = "read.jpeg";}
+                      else{object.image = "read1.jpeg";}
+  }else{
+                    buttonnumber = 0;
+                    distancelabel.class = "none";
+                    firelabel.class  = "none";
+                    boltlabel.class  = "none";
+                    heartlabel.class  = "none";
+                    stairslabel.class  = "none";
+                    object.image = "blank.png";
+                    evolution.class = "meter";
+    
+  }
+  }
   
 /*--- Change Date and Background Functions ---*/
 
