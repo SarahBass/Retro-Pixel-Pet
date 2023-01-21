@@ -250,7 +250,9 @@ pet.image =  "pet/"+ pets + "v" + version + "a" + seconds%2 + ".png";
    const accelerometer = new Accelerometer({ frequency: 30, batch: 60 });
    accelerometer.addEventListener("reading", () => { 
     if (accelerometer.y < 6){   
-      poops--;}
+      poops--;
+      petnaughty--;
+    }
   });  
     display.addEventListener("change", () => {
     // Automatically stop the sensor when the screen is off to conserve battery
