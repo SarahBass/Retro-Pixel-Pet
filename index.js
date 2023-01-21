@@ -173,7 +173,7 @@ function checkAndUpdateBatteryLevel() {
  
     function showPet(){
       //egg has 1 version
-      if pets == "egg" {version = 0;}
+      if (pets == "egg") {version = 0;}
       else{
  if (basic > age){
          //best looking versions
@@ -192,7 +192,7 @@ function checkAndUpdateBatteryLevel() {
   
   //--------------CHANGE PET FORM IN FOREGROUND ------------------
   //pet/pet3v0a1.png
-pet.image =  pets + "v" + version + "a" + seconds%2 + ".png";
+pet.image =  "pet/"+ pets + "v" + version + "a" + seconds%2 + ".png";
     //----------Pet Evolution Egg -------------------
   if (userActivity.adjusted.steps < goals.steps/5){
   pets = "egg";
