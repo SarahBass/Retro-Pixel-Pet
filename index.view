@@ -45,11 +45,7 @@
 
   
  <!-- Button --> 
- <use id="button-1" href="#text-button" class="none text-button bottom application-fill"
-         fill = "yellow" font-family="System-Regular" font-size="700">
-    <set href="#text" attributeName="text-buffer" to="12" />
-    <set href="#text" attributeName="fill" to="white" />
-    <set href="#text" attributeName="y" to="12" />
-  </use>  
+ <use id="button-1" href="#text-button" class="none text-button primary application-fill" />
+<use id="button-2" href="#text-button" class="none text-button secondary application-fill" />
   
 </svg>
