@@ -8,7 +8,7 @@ Versa3 Sense SDK 6.0 - Complete and Tested on Real Device
 
 Stats heavy watch, filled with cute interactions, daily changing pictures, and fun surprises.
 
-![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/bestpromo.png)
+![Alt text](https://github.com/SarahBass/Retro-Virtual-Pet-Versa-2/blob/main/promo/Versa3_336_pixel_2%202.png)
 
 Contents: | Description:
 --------- | ------------
