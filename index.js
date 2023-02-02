@@ -133,11 +133,11 @@ if (userActivity.adjusted.steps > goals.steps){background.image = "Gameover.jpeg
   if (petnaughty < 0){petnaughty = 0;}
   
   //Sleeping increases cuteness level of form
-  if (basic > 100){basic = 100;}
+  if (basic > 50){basic = 0;}
   if (basic < 0){basic = 0;} 
   
    //Reset stats at midnight
-if ((util.zeroPad(hours) == 0)&& (minutes == 1)){
+if ((util.zeroPad(hours) == 0)&& (mins == 1)){
   petnaughty = 0;
   poops = 0;
   basic = 0;}
@@ -209,16 +209,16 @@ pet.image =  "pet/"+ pets + "v" + version + "a" + seconds%2 + ".png";
     //----------Pet Evolution Egg -------------------
   if (userActivity.adjusted.steps < goals.steps/5){
   pets = "egg";
-  age = 20;}
+  age = 10;}
   else if ((userActivity.adjusted.steps < ((goals.steps)*2)/5) && (userActivity.adjusted.steps > ((goals.steps*1)/5))) {
-         pets = "baby";
-         age = 30;
+         pets = "child";
+         age = 10;
   }
   //----------Pet Evolution Mini Pet -------------------
   
   else if ((userActivity.adjusted.steps < ((goals.steps)*3)/5)&& (userActivity.adjusted.steps > ((goals.steps*2)/5))){
-         pets = "child";
-         age = 40;
+         pets = "baby";
+         age = 20;
   }
   
     //----------Pet Evolution Cup Pet -------------------
@@ -226,32 +226,31 @@ pet.image =  "pet/"+ pets + "v" + version + "a" + seconds%2 + ".png";
   else if ((userActivity.adjusted.steps < ((goals.steps)*4)/5)&& (userActivity.adjusted.steps > ((goals.steps*3)/5)))
            {
              pets = "cup";
-             age = 50;
+             age = 30;
            }
   
     //----------Pet Evolution Adult Pet -------------------
   
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {
-             pets = "pet4";
-             age = 60;
+             pets = "pet";
+             age = 40;
            }
   //---------Game Over Pet ------------------
   
   else if (userActivity.adjusted.steps > goals.steps){
     
     pets = "ghost";
-    age = 30;
+    age = 10;
     
   } else {
-    pets = "pet4";
+    pets = "pet";
     age = 20;
   }}
   
   function showPoop(){
     
-     if (poops > 0){petnaughty++;
-                   basic--;}
+     if (poops > 0){petnaughty++;}
     
     //clear poops by moving wrist
     if (poops > 0){
@@ -299,7 +298,7 @@ else {poop.image = "blank.png";}
            {evolution.text = "♥♥♥♥";}
   else if ((userActivity.adjusted.steps < goals.steps)&& (userActivity.adjusted.steps > ((goals.steps*4)/5)))
            {evolution.text = "♥♥♥♥♥";}
-  else if (userActivity.adjusted.steps > goals.steps){evolution.text = "♥♥♥♥♥♥";}
+  else if (userActivity.adjusted.steps > goals.steps){evolution.text = " ☠ ☠ ☠ ";}
   else {evolution.text = "";}
   }
   
@@ -363,3 +362,4 @@ button1.onclick = function(evt) { buttonnumber++; }
 }
 /*----------------------------END OF FUNCTIONS--------------------------------*/
 /*-------------------------------END OF CODE----------------------------------*/
+
