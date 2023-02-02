@@ -8,7 +8,7 @@ Versa3 Sense SDK 6.0 - Complete and Tested on Real Device
 
 Stats heavy watch, filled with cute interactions, daily changing pictures, and fun surprises.
 
-![Alt text](https://github.com/SarahBass/Retro-Virtual-Pet-Versa-2/blob/main/promo/Versa3_336_pixel_2%202.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/03930C12-553A-45F4-BD4C-78AD67696BC0.png)
 
 Contents: | Description:
 --------- | ------------
@@ -59,7 +59,7 @@ Pixel Pets are All Original Designs
 
 ### Egg Monster
 
-![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%202.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/6D509358-44A8-46C1-B0E0-19A178BAF2A0.png)
 
 ### Baby Monster
 
@@ -67,12 +67,12 @@ Pixel Pets are All Original Designs
 
 ### Cup Monster
 
-![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%204.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/03930C12-553A-45F4-BD4C-78AD67696BC0.png)
 
 ### Cute Monster
 
-![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%203.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/91D0AA65-2916-42BC-91AB-B3ED0AFDA4E8.png)
 
 ### Game Over
 
-![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/Versa3_336_pixel_2%205.png)
+![Alt text](https://github.com/SarahBass/Retro-Pixel-Pet/blob/main/promo/CD3A8D3E-64B9-4BB0-A1B0-09E383A43BFF.png)
